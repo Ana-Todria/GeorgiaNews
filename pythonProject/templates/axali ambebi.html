@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+{% if current_user.role == "Admin" %}
+<br>
+<div class="d-grid gap-2 d-md-flex justify-content-md-start">
+  <a href="/create_thing"   class="btn btn-outline-success" >დამატება</a>
+</div>
+{%endif%}
+
+
+<br> <br>
+<div class="row row-cols-2 row-cols-md-3 g-3">
+
+{% for thing in things %}
+    <div>
+    <div class="card h-100" >
+        <img src="{{thing['img']}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text">{{thing['text']}}</p>
+            <a href="{{thing['link']}}" class="btn btn-primary">იხილეთ ვრცლად</a>
+          {% if current_user.role == "Admin" %}
+                <a href="/edit_thing/{{thing.id}}" class="btn btn-successs">Edit</a>
+                <a href="/delete_thing/{{thing.id}}" class="btn btn-danger">Delete</a>
+            {% endif %}
+        </div>
+    </div>
+        </div>
+{% endfor %}
+
+</div>
+
+
+
+<br>
+<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+    <div class="btn-group" role="group" aria-label="First group">
+        <a class="btn btn-secondary" href="/axali" role="button">1</a>
+        <a class="btn btn-secondary" href="/axali2" role="button">2</a>
+        <a class="btn btn-secondary" href="#" role="button">3</a>
+        <a class="btn btn-secondary" href="#" role="button">4</a>
+        <a class="btn btn-secondary" href="#" role="button">5</a>
+        <a class="btn btn-secondary" href="#" role="button">6</a>
+
+    </div>
+</div>
+{% endblock %}

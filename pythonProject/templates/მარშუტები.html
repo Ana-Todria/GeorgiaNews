@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<span class="placeholder col-12 bg-primary"></span>
+<br><br>
+{% if current_user.role == "Admin" %}
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-start">
+  <a href="/create_tour"   class="btn btn-outline-success" >დამატება</a>
+</div>
+<br>
+{%endif%}
+
+<form class="btn-group" action="/search2">
+    <input name="m" class="form-control">
+    <button href="/search2" class="btn btn-primary">Search</button>
+</form>
+<br>
+<br>
+<div class="row row-cols-2 row-cols-md-3 g-3">
+
+    {% for tour in tours %}
+    <div>
+        <div class="card h-100">
+            <img src="{{tour['img']}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{tour['name']}}</h5>
+                <p class="card-text"></p>
+                <a href="{{tour['link']}}" class="btn btn-primary">იხილეთ ვრცლად</a>
+                {% if current_user.role == "Admin" %}
+                <a href="/edit_tour/{{tour.id}}" class="btn btn-successs">Edit</a>
+                <a href="/delete_tour/{{tour.id}}" class="btn btn-danger">Delete</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+<br>
+
+{% endblock %}

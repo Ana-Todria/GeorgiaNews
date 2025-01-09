@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+ {% block content %}
+<br>
+<div class="container">
+<form method="POST" >
+    {{ form.hidden_tag() }}
+<div class="row">
+
+            {{form.username(placeholder=form.username.label.text)}}
+        </div>
+<div class="row">
+
+            {{form.password(placeholder=form.password.label.text)}}
+</div>
+
+<div class="row">
+
+            {{form.login}}
+</div>
+</form>
+</div>
+{% endblock %}

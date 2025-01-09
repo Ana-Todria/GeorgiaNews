@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+
+    <div class="row">
+
+        {{form.text(placeholder=form.text.label.text)}}
+    </div>
+    <div class="row">
+
+        {{form.img(placeholder=form.img.label.text)}}
+    </div>
+       <div class="row">
+
+        {{form.link(placeholder=form.link.label.text)}}
+    </div>
+    <div class="row">
+
+        {{form.submit}}
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,29 @@
+ {% extends "base.html" %}
+
+{% block content %}
+<a href="/axali" class="btn-close" aria-label="Close"></a>
+ <br> <br>
+
+{% for doc in docs %}
+ {% if current_user.role == "Admin" %}
+ <a href="/edit_doc/{{doc.id}}" class="btn btn-outline-success">Edit</a>
+ {% endif %}
+ <br> <br>
+ <div class="card">
+  <div class="card-header">
+   {{doc['name']}}
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>{{doc['text']}}</p>
+
+    </blockquote>
+  </div>
+</div>
+
+
+ {% endfor %}
+
+
+
+   {% endblock %}
