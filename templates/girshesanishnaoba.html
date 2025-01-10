@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+
+ {% if current_user.role == "Admin" %}
+<br>
+<div class="d-grid gap-2 d-md-flex justify-content-md-start">
+  <a href="/create_product"   class="btn btn-outline-success" >დამატება</a>
+</div>
+{%endif%}
+<br>
+<form class="btn-group" action="/search">
+    <input name="n" class="form-control">
+    <button href="/search" class="btn btn-primary">Search</button>
+</form>
+
+
+
+
+<br> <br>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+{% for product in products %}
+
+    <div class="col">
+        <div class="card" style="width: 30rem;">
+            <img src="{{product['img']}}"
+                 class="card-img-top"
+                 alt="">
+
+            <div class="card-body">
+                <h5 class="card-title">{{product['name']}}</h5>
+                <p class="card-text">{{product['text']}}</p>
+                <a href="{{product['link']}}" class="btn btn-primary">დეტალური ინფორმაცია</a>
+                {% if current_user.role == "Admin" %}
+                <a href="/edit_product/{{product.id}}" class="btn btn-successs">Edit</a>
+                <a href="/delete_product/{{product.id}}" class="btn btn-danger">Delete</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+<br> <br>
+
+{% endfor %}
+
+</div>
+
+<br>
+{% endblock %}

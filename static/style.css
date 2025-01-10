@@ -1,0 +1,35 @@
+ .red{
+ padding-left: 400px;
+  padding-right:100px;
+padding-top:50px;
+ padding-bottom:100px;
+ }
+
+.blue{
+background-color: blue;
+}
+
+.size{
+card-cap-padding-200px: #{$card-cap-padding-200px};
+card-cap-padding-50px: #{$card-cap-padding-50px};
+}
+
+.color{
+navbar-color: blue;
+}
+
+.mid{
+text-align: center;
+}
+
+.rn{
+padding: 2rem;
+}
+
+.cen{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+}

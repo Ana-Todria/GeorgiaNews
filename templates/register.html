@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form method="POST" >
+    {{ form.hidden_tag() }}
+    <div class="row">
+
+        {{form.username(placeholder=form.username.label.text)}}
+    </div>
+    <div class="row">
+
+        {{form.password(placeholder=form.password.label.text)}}
+    </div>
+    <div class="row">
+
+        {{form.repeat_password(placeholder=form.repeat_password.label.text)}}
+    </div>
+    <div class="row">
+
+        {{form.register}}
+    </div>
+</form>
+{% endblock %}

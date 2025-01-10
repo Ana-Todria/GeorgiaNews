@@ -1,0 +1,29 @@
+ {% extends "base.html" %}
+ {% block content %}
+
+ <a href="/girshesanishnaoba" class="btn-close" aria-label="Close"></a>
+ <br> <br>
+
+{% for info in infos %}
+ {% if current_user.role == "Admin" %}
+ <a href="/edit_info/{{info.id}}" class="btn btn-outline-success">Edit</a>
+ {% endif %}
+ <br> <br>
+ <div class="card">
+  <div class="card-header">
+   {{info['name']}}
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>{{info['text']}}</p>
+
+    </blockquote>
+  </div>
+</div>
+
+
+ {% endfor %}
+
+
+
+ {% endblock %}
